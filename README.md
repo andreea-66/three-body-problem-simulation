@@ -58,4 +58,72 @@ For a three-body system, the acceleration of each body depends on the gravitatio
 
 Because the system has **no general analytical solution**, the equations must be solved numerically.
 
-In this project, the system of differential equations is solved using the **Runge–Kutta 5(4) method**, implemented in the SciPy function:
+In this project, the system of differential equations is solved using the **Runge–Kutta 5(4) method**, implemented in the SciPy function: 
+solve_ivp()
+
+This method integrates the equations of motion and calculates the trajectories of the bodies over time.
+
+---
+
+# Simulated Cases
+
+## Case 1 – Three Bodies with Equal Masses
+
+In the first simulation, all three bodies have **equal masses** and interact gravitationally.
+
+Each body is simultaneously attracted by the other two. Because of these interactions, the motion becomes **chaotic and unpredictable**.
+
+Sometimes one body can gain enough energy to be **ejected from the system**, while the other two form a temporary binary system.
+
+Small variations in initial conditions can lead to completely different trajectories.
+
+### Result
+
+![Case 1](case1.png)
+
+---
+
+## Case 2 – Binary Star System with a Planet
+
+In this simulation, two bodies represent **stars with equal mass**, while the third body represents a **planet with a much smaller mass**.
+
+The gravitational attraction between the two stars dominates the system, forming a relatively **stable binary orbit**.
+
+The planet moves under the influence of both stars and may experience a **gravitational slingshot effect**, which can accelerate it and push it away from the system.
+
+### Result
+
+![Case 2](case2.png)
+
+---
+
+## Case 3 – Motion Relative to the Center of Mass
+
+In the third simulation, the three bodies are initially placed in a **triangular configuration** and start **from rest**.
+
+Even with simple initial conditions, the gravitational interactions generate **complex and unpredictable trajectories**.
+
+To better visualize the motion, the system is recentered so that the **center of mass remains fixed at the origin (0,0)**.
+
+### Result
+
+![Case 3](case3.png)
+
+---
+
+## Technologies Used
+
+- Python
+- NumPy
+- SciPy
+- Matplotlib
+
+---
+
+## Conclusion
+
+The three-body problem demonstrates how simple physical laws can generate extremely complex behavior.
+
+Even though the equations describing the system are simple, their solutions are highly sensitive to initial conditions and often chaotic.
+
+Numerical simulations allow us to study and visualize these complex gravitational interactions.
