@@ -1,32 +1,61 @@
 # three-body-problem-simulation
 
-This project simulates the classical Three Body Problem using Python.
+## Overview
 
-The motion of three gravitational bodies is calculated using Newton's law of gravitation and solved numerically using SciPy.
+In physics and classical mechanics, the **Three Body Problem** refers to the challenge of determining the future motion of three point masses given their initial positions and velocities, according to **Newton’s laws of motion** and **Newton’s law of universal gravitation**.
 
-## Technologies
-- Python
-- NumPy
-- SciPy
-- Matplotlib
+The three-body problem is a special case of the **N-body problem**, which studies the motion of multiple bodies interacting through gravitational forces.
 
-## Cases
+Unlike the **two-body problem**, which has exact analytical solutions, the three-body problem **does not have a general analytical solution**. Because of this, the motion must be studied using **numerical simulations**.
 
-### Case 1 – Three bodies with equal masses
-Simulation of three bodies with identical masses interacting gravitationally.
+Small changes in the initial conditions can lead to completely different trajectories, which makes the system **chaotic and highly sensitive to initial conditions**.
 
-### Case 2 – Binary star system with a planet
-Two stars orbit each other while a small planet moves under their gravitational influence.
+---
 
-### Case 3 – Center of mass reference frame
-Three bodies start in a triangular configuration and the system is analyzed relative to the center of mass.
+## Historical Background
 
-## How to run
+The first classical example of a three-body system involved the **Sun, Earth, and Moon**.
 
-Install dependencies:
+In *Principia* (1687), **Isaac Newton** studied the gravitational interaction between these bodies. However, the complexity of the three gravitational forces prevented him from finding a complete analytical solution.
 
-pip install numpy scipy matplotlib
+Later, **Leonhard Euler** discovered special collinear solutions where the three bodies remain aligned.
 
-Run a simulation:
+**Joseph-Louis Lagrange** later identified solutions where the three bodies form an **equilateral triangle**, leading to the discovery of the **five Lagrange points (L1–L5)**.
 
-python case1_equal_masses.py
+In the late 19th century, **Henri Poincaré** proved that a general analytical solution does not exist and showed that the three-body system is extremely sensitive to initial conditions. His work laid the foundation of **chaos theory**.
+
+---
+
+## Physical Model
+
+The motion of the bodies is governed by **Newton's law of universal gravitation**:
+
+F = -G (m₁m₂ / r³) r
+
+Where:
+
+- **G** – gravitational constant  
+- **m₁, m₂** – masses of the bodies  
+- **r** – distance vector between the bodies  
+
+Each body experiences gravitational attraction from the other two bodies.
+
+The equations describing the motion are:
+
+Position equation:
+
+dr/dt = v
+
+Acceleration equation:
+
+a = F / m
+
+For a three-body system, the acceleration of each body depends on the gravitational forces produced by the other two bodies.
+
+---
+
+## Numerical Method
+
+Because the system has **no general analytical solution**, the equations must be solved numerically.
+
+In this project, the system of differential equations is solved using the **Runge–Kutta 5(4) method**, implemented in the SciPy function:
